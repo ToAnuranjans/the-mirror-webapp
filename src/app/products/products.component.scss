@@ -1,0 +1,26 @@
+.product-card {
+  max-width: 400px;
+  margin: 10px;
+}
+
+div.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+mat-card {
+  // align-self: flex-start;
+  // background-color: chartreuse;
+}
+.example-button-row {
+  display: flex;
+  justify-content: center;
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+}
+.example-button-row button,
+.example-button-row a {
+  margin-right: 8px;
+}

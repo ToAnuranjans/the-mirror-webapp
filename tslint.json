@@ -58,7 +58,7 @@
     "ordered-imports": false,
     "quotemark": [
       true,
-      "single"
+      "duble"
     ],
     "trailing-comma": false,
     "no-output-on-prefix": true,
