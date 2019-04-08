@@ -7,7 +7,16 @@
         placeholder="Product Name"
         [(ngModel)]="newProduct.name"
         name="name"
+        [required]="true"
       />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Select a Category</mat-label>
+      <mat-select [(value)]="newProduct.category">
+        <mat-option value="mirror">Mirror</mat-option>
+        <mat-option value="washbasin">Wash Basin</mat-option>
+        <mat-option value="dressing">Dressing</mat-option>
+      </mat-select>
     </mat-form-field>
     <mat-form-field class="product-full-width">
       <input
@@ -17,6 +26,7 @@
         type="number"
         min="0"
         name="price"
+        required
       />
     </mat-form-field>
     <mat-form-field class="product-full-width">
@@ -28,6 +38,7 @@
         min="0"
         max="100"
         name="discount"
+        required
       />
     </mat-form-field>
     <mat-form-field class="product-full-width">
@@ -39,6 +50,7 @@
         min="0"
         max="5"
         name="rating"
+        required
       />
     </mat-form-field>
     <mat-form-field class="product-full-width">
@@ -47,6 +59,7 @@
         placeholder="Product Description"
         [(ngModel)]="newProduct.description"
         name="description"
+        required
       ></textarea>
     </mat-form-field>
     <input
@@ -54,15 +67,31 @@
       type="file"
       accept="image/*"
       (change)="uploadFile($event)"
+      style="display: none"
     />
-    <mat-checkbox>In Stock</mat-checkbox>
-    <div class="uploaded-image">
+
+    <button
+      type="button"
+      mat-raised-button
+      (click)="imageInput.click()"
+      color="accent"
+    >
+      Upload Image
+    </button>
+    <mat-checkbox style="float:right">In Stock</mat-checkbox>
+    <div class="uploaded-image" *ngIf="!!url">
       <img [src]="url" height="150px" width="300px" />
     </div>
   </mat-dialog-content>
   <mat-dialog-actions align="end">
     <button mat-button mat-dialog-close>Cancel</button>
-    <button mat-raised-button color="accent" cdkFocusInitial type="submit">
+    <button
+      mat-raised-button
+      [mat-dialog-close]="true"
+      color="accent"
+      cdkFocusInitial
+      type="submit"
+    >
       Save
     </button>
   </mat-dialog-actions>

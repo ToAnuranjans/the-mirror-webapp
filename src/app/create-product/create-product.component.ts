@@ -1,5 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { IProduct } from "../model/product-model";
+import { ProductService } from "../mirror-service/product.service";
+declare var result: any;
 
 @Component({
   selector: "tm-create-product",
@@ -9,27 +11,38 @@ import { IProduct } from "../model/product-model";
 export class CreateProductComponent implements OnInit {
   url: string;
   newProduct: IProduct = {} as IProduct;
-  constructor() {}
+  imageData: File;
+  constructor(private productService: ProductService) {}
 
   ngOnInit() {}
 
   uploadFile(event: any): void {
     console.log({ event: event.target.value });
     if (event.target.files && event.target.files[0]) {
+      this.imageData = event.target.files[0];
       const reader = new FileReader();
-
       reader.readAsDataURL(event.target.files[0]); // read file as data url
 
       reader.onload = e => {
         // called once readAsDataURL is completed
-        this.newProduct.imageUrl = this.url = e.target.result;
-        console.log(this.url);
+        this.url = this.url = (e.target as any).result;
       };
     }
   }
 
   onSubmit(event: any) {
-    console.log({ event });
-    console.log({ product: this.newProduct });
+    let prod;
+    const formData = new FormData();
+    formData.append("image", this.imageData, this.imageData.name);
+
+    for (prod in this.newProduct) {
+      if (this.newProduct.hasOwnProperty(prod)) {
+        formData.append(prod, this.newProduct[prod]);
+      }
+    }
+
+    this.productService
+      .createProduct(formData)
+      .subscribe(x => console.log({ x }));
   }
 }

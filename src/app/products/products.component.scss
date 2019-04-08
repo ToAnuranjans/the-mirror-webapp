@@ -9,6 +9,9 @@ div.cards {
   justify-content: center;
 }
 
+.mat-card-image {
+  max-width: 100%;
+}
 mat-card {
   // align-self: flex-start;
   // background-color: chartreuse;

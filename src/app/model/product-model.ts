@@ -7,4 +7,5 @@ export interface IProduct {
   discount: number;
   imageUrl: string;
   rating: number;
+  category: string;
 }
