@@ -31,6 +31,4 @@ export class ProductsComponent implements OnInit {
       console.log(`Dialog result: ${result}`);
     });
   }
-
-
 }

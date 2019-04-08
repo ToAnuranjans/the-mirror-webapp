@@ -17,7 +17,6 @@ export class CreateProductComponent implements OnInit {
   ngOnInit() {}
 
   uploadFile(event: any): void {
-    console.log({ event: event.target.value });
     if (event.target.files && event.target.files[0]) {
       this.imageData = event.target.files[0];
       const reader = new FileReader();
@@ -45,9 +44,8 @@ export class CreateProductComponent implements OnInit {
         formData.append(prod, this.newProduct[prod]);
       }
     }
-
     this.productService
       .createProduct(formData)
-      .subscribe(x => console.log({ x }));
+      .subscribe(x => console.log({ success: true }), e => console.log({ e }));
   }
 }
