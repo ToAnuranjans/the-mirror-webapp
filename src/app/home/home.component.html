@@ -1,7 +1,11 @@
-<mat-sidenav-container>
-<button mat-button [matMenuTriggerFor]="menu">Menu</button>
-<mat-menu #menu="matMenu">
-  <button mat-menu-item>Item 1</button>
-  <button mat-menu-item>Item 2</button>
-</mat-menu>
-</mat-sidenav-container>
+<div style="text-align:center">
+  <h1>{{ title }}</h1>
+  <img
+    width="300"
+    alt="Angular Logo"
+    class="image-circle"
+    src="../assets/images/logo.png"
+  />
+</div>
+
+<router-outlet></router-outlet>

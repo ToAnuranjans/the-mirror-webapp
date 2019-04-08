@@ -30,6 +30,11 @@ export class CreateProductComponent implements OnInit {
     }
   }
 
+  clearFile(event) {
+    this.url = "";
+    this.imageData = null;
+  }
+
   onSubmit(event: any) {
     let prod;
     const formData = new FormData();
