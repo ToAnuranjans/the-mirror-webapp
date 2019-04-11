@@ -2,9 +2,14 @@
   <img alt="Angular Logo" class="brand-logo" src="../assets/images/logo.png" />
   <div><span>The Mirror</span></div>
   <span class="example-fill-remaining-space"></span>
-  <button mat-button color="accent" [routerLink]="'/home'">Home</button>
-  <button mat-button color="accent" [routerLink]="'/products'">Products</button>
-  <button mat-button color="accent" [routerLink]="'/contact'">Contact</button>
+  <mat-icon class="tm-hamburger">menu</mat-icon>
+  <div class="tm-nav-bar">
+    <button mat-button color="accent" [routerLink]="'/home'">Home</button>
+    <button mat-button color="accent" [routerLink]="'/products'">
+      Products
+    </button>
+    <button mat-button color="accent" [routerLink]="'/contact'">Contact</button>
+  </div>
 </mat-toolbar>
 
 <router-outlet></router-outlet>

@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  theMirrorApi: "https://natrajmirrorapi.azurewebsites.net/"
+  theMirrorApi: "http://localhost:3000"
 };
 
 /*
