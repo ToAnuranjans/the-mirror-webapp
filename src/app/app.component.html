@@ -2,14 +2,36 @@
   <img alt="Angular Logo" class="brand-logo" src="../assets/images/logo.png" />
   <div><span>The Mirror</span></div>
   <span class="example-fill-remaining-space"></span>
-  <mat-icon class="tm-hamburger">menu</mat-icon>
-  <div class="tm-nav-bar">
-    <button mat-button color="accent" [routerLink]="'/home'">Home</button>
-    <button mat-button color="accent" [routerLink]="'/products'">
+
+  <div class="tm-nav-bar" *ngIf="displayMobileNavbar">
+    <button
+      mat-button
+      color="accent"
+      [routerLink]="'/home'"
+      (click)="closeNavWindow($event)"
+    >
+      Home
+    </button>
+    <button
+      mat-button
+      color="accent"
+      [routerLink]="'/products'"
+      (click)="closeNavWindow($event)"
+    >
       Products
     </button>
-    <button mat-button color="accent" [routerLink]="'/contact'">Contact</button>
+    <button
+      mat-button
+      color="accent"
+      [routerLink]="'/contact'"
+      (click)="closeNavWindow($event)"
+    >
+      Contact
+    </button>
   </div>
+  <mat-icon class="tm-hamburger" (click)="showNavigation($event)">{{
+    icon
+  }}</mat-icon>
 </mat-toolbar>
 
 <router-outlet></router-outlet>

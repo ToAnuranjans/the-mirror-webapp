@@ -28,6 +28,9 @@ export class ProductsComponent implements OnInit {
   isAdmin() {
     return true;
   }
+
+
+
   openProductEditor() {
     const dialogRef = this.dialog.open(CreateProductComponent);
 
