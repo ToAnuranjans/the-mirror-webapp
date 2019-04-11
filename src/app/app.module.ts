@@ -10,6 +10,7 @@ import { ContactComponent } from "./contact/contact.component";
 import { CreateProductComponent } from "./create-product/create-product.component";
 import { HttpClientModule } from "@angular/common/http";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { LoadingComponent } from './components/loading.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
     HomeComponent,
     ProductsComponent,
     ContactComponent,
-    CreateProductComponent
+    CreateProductComponent,
+    LoadingComponent
   ],
   entryComponents: [CreateProductComponent],
   imports: [

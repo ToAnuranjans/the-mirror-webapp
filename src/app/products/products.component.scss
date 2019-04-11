@@ -10,8 +10,9 @@ div.cards {
 }
 
 .mat-card-image {
-  max-width: 100%;
+  width: 100%;
   margin: 4px;
+  height: 50vh;
 }
 mat-card {
   // align-self: flex-start;
@@ -28,3 +29,5 @@ mat-card {
 .example-button-row a {
   margin-right: 8px;
 }
+
+

@@ -11,6 +11,7 @@ import { CreateProductComponent } from "../create-product/create-product.compone
 })
 export class ProductsComponent implements OnInit {
   products: IProduct[];
+  loading = true;
   admin: true;
   constructor(
     private productService: ProductService,
@@ -18,7 +19,10 @@ export class ProductsComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.productService.getProducts().subscribe(x => (this.products = x));
+    this.productService.getProducts().subscribe(x => {
+      this.products = x;
+      this.loading = false;
+    });
   }
 
   isAdmin() {
